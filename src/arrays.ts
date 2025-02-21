@@ -5,7 +5,7 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return [numbers.at(0), numbers.at(-1)].filter((v) => (v != undefined));
+    return [numbers.at(0), numbers.at(-1)].filter((v) => (typeof(v) === "number"));
 }
 
 /**
