@@ -82,5 +82,5 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return ((acc: {arr: number[], done: boolean}) => (acc.done ? acc.arr : [...acc.arr, acc.arr.reduce((prev, curr) => (curr + prev), 0)]))(values.reduce((acc, curr) => (curr < 0 && !acc.done ? {arr: [...acc.arr, curr, acc.arr.reduce((prev, curr) => (curr + prev), Math.max(0, curr))], done: true} : {...acc, arr: [...acc.arr, curr]}), {arr: [], done: false} as {arr: number[], done: boolean}));
+    return ((acc: {arr: number[], done: boolean}) => (acc.done ? acc.arr : [...acc.arr, acc.arr.reduce((prev, curr) => (curr + prev), 0)]))(values.reduce((acc, curr) => (curr < 0 && !acc.done ? {arr: [...acc.arr, curr, acc.arr.reduce((prev, curr) => (curr + prev), 0)], done: true} : {...acc, arr: [...acc.arr, curr]}), {arr: [], done: false} as {arr: number[], done: boolean}));
 }
